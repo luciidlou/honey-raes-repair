@@ -30,6 +30,7 @@ export const CustomerList = () => {
 
     return (
         <>
+            <h2>Customer List</h2>
             {totalCustomersMessage}
             {
                 customers.slice(0, 5).map(

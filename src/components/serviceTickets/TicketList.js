@@ -14,6 +14,7 @@ export const ServiceTickets = () => {
     )
     return (
         <>
+            <h2>Service Tickets</h2>
             {
                 serviceTickets.map(ticket => {
                     return <p key={`ticket--${ticket.id}`}>{ticket.description} submitted by {ticket.customer.name} and worked on by {ticket.employee.name}</p>

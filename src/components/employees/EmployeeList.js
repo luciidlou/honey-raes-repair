@@ -23,6 +23,7 @@ export const EmployeeList = () => {
 
     return (
         <>
+            <h2>Employee List</h2>
             <div>
                 Specialties: {specialties}
             </div>
