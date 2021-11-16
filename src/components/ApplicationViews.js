@@ -1,8 +1,8 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { EmployeeList } from "../employees/EmployeeList";
-import { ServiceTickets } from "../serviceTickets/TicketList";
-import { CustomerList } from "./CustomerList";
+import { EmployeeList } from "./employees/EmployeeList";
+import { ServiceTickets } from "./serviceTickets/TicketList";
+import { CustomerList } from "./customers/CustomerList";
 
 export const ApplicationViews = () => {
     return (
