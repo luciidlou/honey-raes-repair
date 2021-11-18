@@ -5,23 +5,31 @@ import { EmployeeForm } from "./employees/EmployeeForm";
 import { ServiceTickets } from "./serviceTickets/TicketList";
 import { CustomerList } from "./customers/CustomerList";
 import { TicketForm } from "./serviceTickets/TicketForm";
+import { Ticket } from "./serviceTickets/Ticket";
+import { Employee } from "./employees/Employee";
 
 export const ApplicationViews = () => {
      return (
           <>
-               <Route path="/customers">
+               <Route exact path="/customers">
                     <CustomerList />
                </Route>
                <Route exact path="/employees">
                     <EmployeeList />
                </Route>
-               <Route path="/employees/hire">
+               <Route exact path="/employees/:employeeId(\d+)">
+                    <Employee />
+               </Route>
+               <Route exact path="/employees/hire">
                     <EmployeeForm />
                </Route>
                <Route exact path="/tickets">
                     <ServiceTickets />
                </Route>
-               <Route path="/tickets/create">
+               <Route exact path="/tickets/:ticketId(\d+)">
+                    <Ticket />
+               </Route>
+               <Route exact path="/tickets/create">
                     <TicketForm />
                </Route>
           </>
