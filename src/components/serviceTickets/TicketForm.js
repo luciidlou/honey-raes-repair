@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { postTicket } from "../ApiManager";
 
 export const TicketForm = () => {
     const [ticket, update] = useState({
@@ -18,18 +19,10 @@ export const TicketForm = () => {
             customerId: parseInt(localStorage.getItem("honey_customer")),
             dateCompleted: ""
         }
-        const fetchOption = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newTicket)
-        }
-        return fetch("http://localhost:8088/serviceTickets", fetchOption)
+        postTicket(newTicket)
             .then(() => {
                 history.push("/tickets")
-            }
-            )
+            })
     }
 
     return (

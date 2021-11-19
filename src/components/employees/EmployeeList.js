@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import { getAllEmployees } from "../ApiManager"
 
 export const EmployeeList = () => {
     const [employees, changeEmployee] = useState([])
     const [specialties, updateSpecialties] = useState("")
     const history = useHistory()
+    
     useEffect(
         () => {
-            fetch("http://localhost:8088/employees")
-                .then(res => res.json())
+            getAllEmployees()
                 .then((data) => {
                     changeEmployee(data)
                 })
@@ -27,7 +28,7 @@ export const EmployeeList = () => {
     return (
         <>
             <h2>Employee List</h2>
-            <button onClick ={() => {history.push("/employees/hire")}}>Hire New Employee</button>
+            <button onClick={() => { history.push("/employees/hire") }}>Hire New Employee</button>
             <div>
                 Specialties: {specialties}
             </div>

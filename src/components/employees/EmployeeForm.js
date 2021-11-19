@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { postEmployee } from "../ApiManager";
 
 export const EmployeeForm = () => {
     const [newEmployee, update] = useState({
@@ -16,14 +17,7 @@ export const EmployeeForm = () => {
             specialty: newEmployee.specialty
         }
 
-        const fetchOption = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(employee)
-        }
-        return fetch("http://localhost:8088/employees", fetchOption)
+        postEmployee(employee)
             .then(() => {
                 history.push("/employees")
             })

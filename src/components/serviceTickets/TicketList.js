@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import { getAllServiceTickets, deleteTicketById } from "../ApiManager"
 import "./TicketList.css"
 
 
@@ -10,8 +11,7 @@ export const ServiceTickets = () => {
 
     useEffect(
         () => {
-            fetch("http://localhost:8088/serviceTickets?_expand=customer&_expand=employee")
-                .then(res => res.json())
+            getAllServiceTickets()
                 .then((data) => {
                     setServiceTickets(data)
                 })
@@ -20,10 +20,9 @@ export const ServiceTickets = () => {
     )
 
     const deleteTicket = (id) => {
-        fetch(`http://localhost:8088/serviceTickets/${id}`, { method: "DELETE" })
+        deleteTicketById(id)
             .then(() => {
-                fetch("http://localhost:8088/serviceTickets?_expand=customer&_expand=employee")
-                    .then(res => res.json())
+                getAllServiceTickets()
                     .then((data) => {
                         setServiceTickets(data)
                     })

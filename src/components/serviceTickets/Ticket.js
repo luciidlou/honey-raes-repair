@@ -61,7 +61,6 @@ export const Ticket = () => {
                 <div className="ticket__customer">Submitted by: {ticket.customer?.name}</div>
                 <div className="ticket__employee">Assigned to:
                     <select id="employee" value={ticket.employeeId} onChange={assignEmployee}>
-                        {/* <option value="0" key="employee--0">UNASSIGNED</option> */}
                         {
                             employees.map(employee => {
                                     return <option value={employee.id} key={`employee--${employee.id}`}>{employee.name}</option>
